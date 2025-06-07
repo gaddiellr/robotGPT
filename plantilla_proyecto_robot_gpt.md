@@ -25,15 +25,33 @@ Esta plantilla está diseñada para documentar de forma detallada la informació
 
 ### 2.1 En Simulación
 - **Nombre del Robot**: Puzzlebot Jetson Lidar Edition
-- **Tipo de plataforma**: Robot de tracción diferencial. Con una bola giratoria (caster ball).Su movimiento se basa en dos ruedas accionadas por separado, ubicadas a ambos lados del chasis. Puede cambiar de dirección variando la velocidad relativa de rotación de sus ruedas.
-- **Dimensiones (simuladas)**: base_link 5 cm en z respecto a base_footprint, 
-- **Plugins usados**: ¿Se usó el plugin de Gazebo para dif_drive? ¿Se implementó un nodo propio?
-- **Sensores Simulados**:
-  - LiDAR: modelo, rango, FOV, frame_id, topic
-  - Cámara: modelo, resolución, topic, calibración usada (si aplica)
-  - Otros sensores: TOF, IMU, etc.
-- **Archivos URDF/XACRO**: ¿Dónde están definidos los modelos? ¿Qué nombres de frame usan?
-- **Entorno simulado**: ¿Se diseñó un laberinto en Blender? ¿Cómo se exportó?
+- **Tipo de plataforma**: Robot de tracción diferencial. Con una bola giratoria (caster ball). Su movimiento se basa en dos ruedas accionadas por separado, ubicadas a ambos lados del chasis. Puede cambiar de dirección variando la velocidad relativa de rotación de sus ruedas.
+- **Dimensiones (simuladas)**:
+  - base_link 5 cm en z respecto a base_footprint.
+  - wheel_left_link 5.2 cm en x, 9.5 cm en y respecto a base_link.
+  - wheel_right_link 5.2 cm en x, -9.5 cm en y respecto a base_link.
+  - lidar_base_link 4.25 cm en x, 7 cm en z respecto a base_link.
+  - laser_frame 3.5 cm en z, -pi en yaw respecto a lidar_base_link. 
+- **Plugins usados**: libDiffDynamicPlugin.so
+- **Sensores Simulados**: 
+  - LiDAR:
+    - Modelo: gpu_lidar.
+    - Rango: 5 cm a 12 m.
+    - Campo de visión: 360°.
+    - frame_id: laser_frame.
+    - tópico: scan.
+  - Cámara: N/A.
+  - Otros sensores: N/A.
+- **Archivos URDF/XACRO**:
+  - puzzlebot_jetson_lidar_ed.xacro: define el robot completo.
+  - puzzlebot_jetson_lidar_base.urdf.xacro: define la base del robot.
+  - parameters_jetson_lidar_ed.xacro: define las medidas de la base del robot.
+  - materials.xacro: define las propiedades de los materiales del robot.
+  - macros.xacro: define la física del robot.
+  - laser_camera_bracket.xacro: define la cámara del robot.
+  - lidar.xacro: define el LiDAR del robot.
+  - gazebo_control.xacro: define los plugins de Gazebo Garden que realizan acciones como publicar velocidades de las ruedas, estado de las articulaciones, transformaciones de los marcos de referencia del robot, activar los sensores.
+- **Entorno simulado**: Archivo .world. Diseñado en Gazebo Garden. Incluye paredes y obstáculos.
 
 ### 2.2 En Robot Físico
 - **Nombre del Robot**:
