@@ -24,8 +24,8 @@ Esta plantilla está diseñada para documentar de forma detallada la informació
 ## 2. 🤖 Especificaciones del Robot
 
 ### 2.1 En Simulación
-- **Nombre del Robot**:
-- **Tipo de plataforma**: (ej. tracción diferencial, omnidireccional). Describe cómo se mueve el robot.
+- **Nombre del Robot**: Puzzlebot Jetson Lidar Edition
+- **Tipo de plataforma**: Robot de tracción diferencial. Con una rueda giratoria (caster wheel).Su movimiento se basa en dos ruedas accionadas por separado, ubicadas a ambos lados del chasis. Puede cambiar de dirección variando la velocidad relativa de rotación de sus ruedas.
 - **Dimensiones (simuladas)**: tamaño del chasis, posición relativa de sensores, etc.
 - **Plugins usados**: ¿Se usó el plugin de Gazebo para dif_drive? ¿Se implementó un nodo propio?
 - **Sensores Simulados**:
