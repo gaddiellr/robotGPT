@@ -39,8 +39,11 @@ Esta plantilla está diseñada para documentar de forma detallada la informació
     - Rango: 5 cm a 12 m.
     - Campo de visión: 360°.
     - frame_id: laser_frame.
-    - tópico: scan.
-  - Cámara: N/A.
+    - Tópico: scan.
+  - Cámara:
+    - Modelo: N/A.
+    - Resolución: 640 x 480 pixeles.
+    - Tópico: camera.
   - Otros sensores: N/A.
 - **Archivos URDF/XACRO**:
   - puzzlebot_jetson_lidar_ed.xacro: define el robot completo.
@@ -54,23 +57,27 @@ Esta plantilla está diseñada para documentar de forma detallada la informació
 - **Entorno simulado**: Archivo .world. Diseñado en Gazebo Garden. Incluye paredes y obstáculos.
 
 ### 2.2 En Robot Físico
-- **Nombre del Robot**:
-- **Fabricante**:
-- **Tipo de plataforma**: igual que en simulación. Explica diferencias si las hay.
-- **Radio de Rueda (en metros)**:
-- **Separación entre Ruedas (en metros)**:
-- **Tipo de tracción**: (diferencial, etc.)
+- **Nombre del Robot**: Puzzlebot Jetson Lidar Edition
+- **Fabricante**: Manchester Robotics Ltd.
+- **Tipo de plataforma**: igual que en simulación.
+- **Radio de Rueda (en metros)**: 0.05.
+- **Separación entre Ruedas (en metros)**: 0.18 aproximadamente.
+- **Tipo de tracción**: diferencial.
 - **Sensores Físicos**:
-  - LiDAR físico: modelo, puerto de conexión, frame_id
-  - Cámara física: tipo de interfaz (CSI, USB), resolución, nodo ROS usado
-  - Otros sensores físicos: TOF, encoder de ruedas, IMU
+  - LiDAR físico:
+    - Modelo: RP LiDAR A1
+    - Puerto de conexión: ttyUSB0 o ttyUSB1
+    - frame_id: laser (predeterminado)
+  - Cámara física:
+    - Tipo de interfaz: CSI
+    - Resolución: 1280 x 960 pixeles (predeterminado)
+    - Nodo ROS usado: video_source/video_source
+  - Otros sensores físicos: Encoder de ruedas.
 - **Controladores**:
-  - Microcontrolador: modelo (ej. ESP32)
-  - Computadora principal: (ej. Jetson Nano, specs, fuente de alimentación)
+  - Microcontrolador: Hackerboard.
+  - Computadora principal: Jetson Nano, fuente de alimentación INIU Power Bank USB C 10000mAh.
 - **Sistema Operativo**:
-  - OS del Jetson:
-  - ROS 2 distro usada:
-  - RMW y configuración en `.bashrc`:
+  - OS del Jetson: Linux
 
 ---
 
